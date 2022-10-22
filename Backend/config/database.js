@@ -10,8 +10,6 @@ const connectedtoDatabase= async ()=>{
        
       }).then((data)=>{
         console.log(`Mongodb connected with server: ${data.connection.host}`);
-      }).catch((err)=>{
-        console.log(err,'database failed');
       })
 }
 
