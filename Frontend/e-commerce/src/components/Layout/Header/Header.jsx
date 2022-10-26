@@ -1,8 +1,11 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
 import logo from "../../../images/logo.png";
-
+import {MdAccountCircle } from "react-icons/md";
+import {MdSearch } from "react-icons/md";
+import {MdAddShoppingCart } from "react-icons/md";
 const options = {
+  burgerColor:"white",
   burgerColorHover: "#eb4034",
   logo,
   logoWidth: "20vmax",
@@ -25,14 +28,19 @@ const options = {
   nav4justifyContent: "flex-start",
   link1ColorHover: "#eb4034",
   link1Margin: "1vmax",
-  profileIconUrl: "/login",
-  profileIconColor: "rgba(35, 35, 35,0.8)",
-  searchIconColor: "rgba(35, 35, 35,0.8)",
-  cartIconColor: "rgba(35, 35, 35,0.8)",
   profileIconColorHover: "#eb4034",
   searchIconColorHover: "#eb4034",
   cartIconColorHover: "#eb4034",
   cartIconMargin: "1vmax",
+  profileIcon:true,
+  profileIconColor: "rgba(35, 35, 35,0.8)",
+  ProfileIconElement: MdAccountCircle, 
+  searchIcon:true,
+  searchIconColor: "rgba(35, 35, 35,0.8)",
+  SearchIconElement:MdSearch,
+  cartIcon:true,
+  cartIconColor: "rgba(35, 35, 35,0.8)",
+  CartIconElement:MdAddShoppingCart,
 };
 
 const Header = () => {
