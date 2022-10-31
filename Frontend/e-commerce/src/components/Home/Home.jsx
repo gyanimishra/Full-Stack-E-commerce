@@ -2,20 +2,38 @@ import React, { Fragment, useEffect } from "react";
 import { FaHandPointDown } from "react-icons/fa";
 import MetaData from "../Layout/Header/MetaData";
 import "./Home.css";
-import Product from "./Product";
 
-const Products= {
-  name: "Blue Shirt",
-  images:[{url:"https://www.lovesove.com/wp-content/uploads/2021/06/Boy-Edited-Dp-For-Fb-Lovesove.jpg"}],
-  price:"$3000",
-  _id:"abhishek"
-}
+import { useSelector, useDispatch } from "react-redux";
+import { clearErrors, getAllProducts } from "../../Actions/productsAction";
+import ProductCard from "./ProductCard";
+import Loader from "../Layout/Loader/Loader";
 
+import { useAlert } from "react-alert";
 
 
 const Home = () => {
+  const alert = useAlert();
+const dispatch= useDispatch();
+
+const { loading, error, products } = useSelector((state) => state.products);
+
+// console.log(products,"products");
+
+    useEffect(()=>{
+      if (error) {
+        alert.error(error);
+        dispatch(clearErrors());
+      }
+      dispatch(getAllProducts())
+    },[dispatch, error, alert])
+
+
+
   return (
     <Fragment>
+      {
+        loading ?<Loader/>:
+        <Fragment>
       <MetaData title="ECOMMERCE" />
      <div className="banner">
       <p>Welcome To Ecommerce</p>
@@ -31,17 +49,15 @@ const Home = () => {
      <h2 className="homeHeading">Featured Products</h2>
 
       <div className="container" id="container">
-        <Product  Products={Products}/>
-        <Product  Products={Products}/>
-        <Product  Products={Products}/>
-        <Product  Products={Products}/>
-        <Product  Products={Products}/>
-        <Product  Products={Products}/>
-        <Product  Products={Products}/>
-        <Product  Products={Products}/>
+      {products &&
+              products.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
       </div>
 
 
+    </Fragment>
+      }
     </Fragment>
   )
 }

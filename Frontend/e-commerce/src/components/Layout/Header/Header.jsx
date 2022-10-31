@@ -5,7 +5,7 @@ import {MdAccountCircle } from "react-icons/md";
 import {MdSearch } from "react-icons/md";
 import {MdAddShoppingCart } from "react-icons/md";
 const options = {
-  burgerColor:"white",
+  burgerColor:"black",
   burgerColorHover: "#eb4034",
   logo,
   logoWidth: "20vmax",
