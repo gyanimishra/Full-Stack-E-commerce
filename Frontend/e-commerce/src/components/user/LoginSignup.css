@@ -25,7 +25,7 @@
   .login_signUp_toggle > p {
     color: rgba(0, 0, 0, 0.678);
     font: 300 1vmax "Roboto";
-    transition: all 0.5s;
+    transition: all 0.9s;
     cursor: pointer;
     display: grid;
     place-items: center;
@@ -37,7 +37,7 @@
   
   .LoginSignUpBox > div > button {
     background-color: tomato;
-    height: 3px;
+    height: 4px;
     width: 50%;
     border: none;
     transition: all 0.5s;
